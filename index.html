@@ -43,41 +43,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;o
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--p2),var(--acc2));border-radius:4px}
 ::selection{background:var(--p-lt2);color:var(--p3)}
 
-/* ═══════════════════════════════════════
-   PRELOADER
-═══════════════════════════════════════ */
-#preloader{position:fixed;inset:0;z-index:99999;background:linear-gradient(145deg,#1A0333 0%,#2D0D75 35%,#4C1D95 65%,#3D1060 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .7s cubic-bezier(.23,1,.32,1),visibility .7s;overflow:hidden}
-#preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-body.loading{overflow:hidden}
-
-/* Preloader noise */
-#preloader::before{content:'';position:absolute;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* Preloader grid */
-#preloader::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 50%,black 30%,transparent 80%)}
-
-/* Preloader logo */
-.pl-logo-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:24px}
-.pl-logo-mark{width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,var(--p2),var(--acc2));display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 60px rgba(124,58,237,.5),0 0 0 1px rgba(255,255,255,.1);animation:pl-mark-in .6s cubic-bezier(.23,1,.32,1) .2s both}
-.pl-logo-mark img{width:56px;height:56px;object-fit:contain}
-.pl-brand{font-family:var(--FH);font-size:36px;font-weight:700;color:#fff;letter-spacing:-.01em;animation:pl-word-in .6s cubic-bezier(.23,1,.32,1) .4s both}
-.pl-brand em{font-style:italic;font-weight:300;background:linear-gradient(135deg,var(--acc3),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pl-tagline{font-family:var(--FB);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:-6px;animation:pl-word-in .6s cubic-bezier(.23,1,.32,1) .55s both}
-
-/* Preloader bar */
-.pl-bar-wrap{position:relative;z-index:2;width:220px;margin-top:44px;animation:pl-word-in .6s cubic-bezier(.23,1,.32,1) .65s both}
-.pl-bar-track{height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
-.pl-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--p2),var(--acc2),var(--gold));border-radius:2px;transition:width .4s ease;box-shadow:0 0 8px rgba(167,139,250,.6)}
-.pl-percent{font-family:var(--FB);font-size:10px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:.08em;margin-top:10px;text-align:center}
-
-/* Preloader orbs */
-.pl-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-.pl-orb1{width:500px;height:500px;top:-100px;right:-100px;background:radial-gradient(circle,rgba(124,58,237,.3) 0%,transparent 70%);animation:float 12s ease-in-out infinite}
-.pl-orb2{width:400px;height:400px;bottom:-80px;left:-80px;background:radial-gradient(circle,rgba(76,29,149,.4) 0%,transparent 70%);animation:float 9s ease-in-out infinite reverse}
-
-@keyframes pl-mark-in{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-@keyframes pl-word-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -521,12 +486,7 @@ footer{background:var(--ink);padding:80px 64px 40px;border-top:1px solid rgba(12
   .arch-btns{flex-direction:column;align-items:center}
   .arch-btn{width:100%;max-width:300px;justify-content:center}
 }
-/* ─── BACK TO TOP ─── */
-#btt{position:fixed;bottom:28px;right:28px;z-index:800;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--p2),var(--acc));color:#fff;border:none;cursor:none;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(91,33,182,.35);opacity:0;transform:translateY(20px);transition:opacity .35s,transform .35s,box-shadow .3s;pointer-events:none}
-#btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
-#btt:hover{box-shadow:0 16px 44px rgba(91,33,182,.5);transform:translateY(-3px)}
-#btt svg{width:18px;height:18px;stroke:#fff;stroke-width:2.5;fill:none}
-
+/* ─── BROCHURE STEPS ─── */
 .broch-steps{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
 .broch-step{display:flex;align-items:flex-start;gap:14px}
 .broch-num{width:30px;height:30px;min-width:30px;border-radius:50%;background:linear-gradient(135deg,var(--p3),var(--p2));color:#fff;font-family:var(--FB);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(91,33,182,.28)}
@@ -537,21 +497,6 @@ footer{background:var(--ink);padding:80px 64px 40px;border-top:1px solid rgba(12
 </style>
 </head>
 <body>
-
-<!-- ═══════════════ PRELOADER ═══════════════ -->
-<div id="preloader">
-  <div class="pl-orb pl-orb1"></div>
-  <div class="pl-orb pl-orb2"></div>
-  <div class="pl-logo-wrap">
-    <div class="pl-logo-mark"><img src="favicon1.png" alt="Yotrixx"></div>
-    <div class="pl-brand">Yotri<em>xx</em></div>
-    <div class="pl-tagline">Design · Visualize · Become</div>
-    <div class="pl-bar-wrap">
-      <div class="pl-bar-track"><div class="pl-bar-fill" id="plFill"></div></div>
-      <div class="pl-percent" id="plPct">0%</div>
-    </div>
-  </div>
-</div>
 
 <div id="cur"></div>
 <div id="cur-ring"></div>
@@ -951,7 +896,7 @@ footer{background:var(--ink);padding:80px 64px 40px;border-top:1px solid rgba(12
 <footer>
   <div class="ft">
     <div>
-      <div class="ft-logo"><div class="ft-logo-mark"><img src="favicon1.png" alt="Yotrixx logo"></div>Yotri<em>xx</em></div>
+      <div class="ft-logo"><div class="ft-logo-mark"><img src="favicon1.png" alt="Yotrixx logo"></div>Yotrixx</div>
       <p class="ft-tag">Design. Visualize. Build Your Future. India's most practical architecture &amp; design education platform.</p>
       <div class="ft-soc">
         <a href="#" class="fso">in</a>
@@ -970,35 +915,7 @@ footer{background:var(--ink);padding:80px 64px 40px;border-top:1px solid rgba(12
   </div>
 </footer>
 
-<!-- BACK TO TOP -->
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-
-/* ─── PRELOADER ─── */
-(function(){
-  document.body.classList.add('loading');
-  const fill=document.getElementById('plFill');
-  const pct=document.getElementById('plPct');
-  const pl=document.getElementById('preloader');
-  let progress=0;
-  const tick=setInterval(()=>{
-    const step=Math.random()*18+4;
-    progress=Math.min(progress+step,95);
-    fill.style.width=progress+'%';
-    pct.textContent=Math.round(progress)+'%';
-  },120);
-  window.addEventListener('load',()=>{
-    clearInterval(tick);
-    fill.style.width='100%';
-    pct.textContent='100%';
-    setTimeout(()=>{
-      pl.classList.add('hidden');
-      document.body.classList.remove('loading');
-    },520);
-  });
-})();
-
+<script>
 /* ─── CURSOR ─── */
 const cur=document.getElementById('cur'),curR=document.getElementById('cur-ring');
 let mx=window.innerWidth/2,my=window.innerHeight/2;
@@ -1085,10 +1002,6 @@ track.addEventListener('mousedown',e=>{isDown=true;track.style.cursor='grabbing'
 track.addEventListener('mouseleave',()=>{isDown=false;track.style.cursor='grab';});
 track.addEventListener('mouseup',()=>{isDown=false;track.style.cursor='grab';});
 track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-track.offsetLeft;track.scrollLeft=scrollLeft-(x-startX)*1.5;});
-
-/* ─── BACK TO TOP ─── */
-const btt=document.getElementById('btt');
-window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400),{passive:true});
 
 
 </script>
